@@ -1,18 +1,12 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <getPdfContent fn="Welcome to Your Vue.js App"/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import getPdfContent from './components/getPdfContent.vue'
-
 export default {
-  name: 'app',
-  components: {
-    getPdfContent
-  }
+  name: 'app'
 }
 </script>
 
@@ -23,6 +17,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+@font-face {
+  font-family: 'myfont';
+    src:  url('fonts/myfont.ttf.woff') format('woff'),
+    url('fonts/myfont.ttf.svg#Arial') format('svg'),
+    url('fonts/myfont.ttf.eot');
+    font-weight: normal;
+    font-style: normal;
 }
 </style>
