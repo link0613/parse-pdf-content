@@ -46,7 +46,7 @@ export default {
   },
   data () {
     return {
-      fn: "./static/4.pdf",
+      fn: "https://bitcoin.org/bitcoin.pdf",
       data: []
     }
   },
@@ -66,17 +66,20 @@ export default {
 
     logContent: function () {
       const vm = this
+      
       this.$refs.myPdfComponent.pdf.forEachPage ( function (page) {
+        
         return page.getTextContent()
         .then (function(content) {
           const text = content.items.map(item => item.str)
+          console.log(text)
           const lenthOfWord = text.length
-         
-          for (let i = 0; i < lenthOfWord - 10; i++) {
-            if (text[i] == 'Date' && 
-              text[ i + 1 ] == 'Value date'
+          for (let i = 0; i < lenthOfWord - 3; i++) {
+            if (text[i].trim().length == 10 && 
+              text[i + 1].trim().length == 10  
             ) {
-              let j = 9
+              
+              let j = 0
               let rowData 
               for (;;) {
                 rowData = {}  
